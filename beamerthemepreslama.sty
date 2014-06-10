@@ -1,7 +1,21 @@
-\mode<presentation>
-
-% Requirement
 \RequirePackage{tikz}
+\RequirePackage{tikzpagenodes}
+
+\RequirePackage{beamerbasethemes}
+\RequirePackage{ifthen}
+\RequirePackage{pgfpages}
+
+\DeclareOptionBeamer{showpagenr}
+{\PassOptionsToPackage{showpagenr=#1}{beamerouterthemepreslama}}
+
+\DeclareOptionBeamer{typeoflama}
+{\PassOptionsToPackage{typeoflama=#1}{beamerouterthemepreslama}}
+
+\DeclareOptionBeamer{compress}{\beamer@compresstrue}
+
+\ProcessOptionsBeamer
+
+\mode<presentation>
 
 % Settings
 \useinnertheme{preslama}
