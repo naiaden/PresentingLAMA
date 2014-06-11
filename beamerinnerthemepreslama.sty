@@ -11,7 +11,8 @@
   \fill[color=orange] (0,0) rectangle(2.95,1.9);
   \fill[color=blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.9);
   \ifnum\thepage>1\relax%
-   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+   %\fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+   \path [top color=green!40,middle color=white,shading angle=45] (0,0) rectangle (\paperwidth,\paperheight);
    \fi
    
   \end{tikzpicture}
