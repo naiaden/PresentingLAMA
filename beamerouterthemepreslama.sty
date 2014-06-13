@@ -11,24 +11,23 @@
 
 \ProcessOptionsBeamer
 
-
 % Frame title
 \defbeamertemplate*{frametitle}{preslama}[1][]
 {
-\vskip1cm%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
-  \begin{tikzpicture}
-  \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
-  \fill[orange] (0,0) rectangle(2.95,1.2);
-  \fill[blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.2);
-   \ifx\insertframesubtitle\@empty%
-      {\node[anchor=west, white,font=\large] at (3.2,0.61){\insertframetitle};}
-      \else%
-      {\node[anchor= west, white,font=\large] at (3.2,0.81){\insertframetitle};%
-       \node[anchor= west, white,font=\small] at (3.2,0.41){\insertframesubtitle};}%
-      \fi
-  \end{tikzpicture}
-  \end{beamercolorbox}
+    \vskip1cm%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
+        \begin{tikzpicture}
+            \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
+            \fill[orange] (0,0) rectangle(2.95,1.2);
+            \fill[blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.2);
+            \ifx\insertframesubtitle\@empty%
+                {\node[anchor=west, white,font=\large] at (3.2,0.61){\insertframetitle};}
+            \else%
+                {\node[anchor= west, white,font=\large] at (3.2,0.81){\insertframetitle};%
+                \node[anchor= west, white,font=\small] at (3.2,0.41){\insertframesubtitle};}%
+            \fi
+        \end{tikzpicture}
+    \end{beamercolorbox}
 }
 
 % color definitions
@@ -41,26 +40,25 @@
 
 \defbeamertemplate*{footline}{preslama}
 {
-\ifthenelse{\equal{\lama}{bayesian}}{\renewcommand{\lama}{bayesian}}{}
+    \ifnum\thepage>1\relax%
+        \ifthenelse{\equal{\lama}{bayesian}}{\renewcommand{\lama}{bayesian}}{}
         \ifthenelse{\equal{\lama}{cultural}}{\renewcommand{\lama}{cultural}}{}
         \ifthenelse{\equal{\lama}{historical}}{\renewcommand{\lama}{historical}}{}
         \ifthenelse{\equal{\lama}{presenting}}{\renewcommand{\lama}{presenting}}{}
-        
-        
 
-
-  \leavevmode%
-  \hbox{%
-  \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,center]{section in footer}%
-    \inserttitle
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.25ex,dp=1ex,center]{subsection in footer}%
-    \insertsectionhead
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.25ex,dp=1ex,center]{pagenumber in footer}%
-   \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}  (\lama{}LAMA)
-  \end{beamercolorbox}}%
-  \vskip0pt%
+        \leavevmode%
+        \hbox{%
+        \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,center]{section in footer}%
+            \inserttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.25ex,dp=1ex,center]{subsection in footer}%
+            \insertsectionhead
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.25ex,dp=1ex,center]{pagenumber in footer}%
+            \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}  (\lama{}LAMA)
+        \end{beamercolorbox}}%
+        \vskip0pt%
+    \fi
 }
 
 \setbeamersize{text margin left=1em,text margin right=1em}

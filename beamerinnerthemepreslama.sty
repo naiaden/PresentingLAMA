@@ -1,39 +1,36 @@
 \RequirePackage{calc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{ifthen}
+\RequirePackage{varwidth}
 
 \mode<presentation>
 
 \setbeamertemplate{background}{
-  \begin{tikzpicture}
-  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-  \fill[color=brown] (0,2) rectangle (\the\paperwidth,\the\paperheight);
-  \fill[color=orange] (0,0) rectangle(2.95,1.9);
-  \fill[color=blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.9);
-  \ifnum\thepage>1\relax%
-   %\fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-   \path [top color=green!40,middle color=white,shading angle=45] (0,0) rectangle (\paperwidth,\paperheight);
-   \fi
-   
-  \end{tikzpicture}
+    \begin{tikzpicture}
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \fill[top color=pink,bottom color=yellow!40] (0,1.0) rectangle (\the\paperwidth,\the\paperheight);
+        \fill[color=black] (0,0) rectangle (\the\paperwidth,1.0);
+        
+        \ifnum\thepage>1\relax%
+            \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \fi
+    \end{tikzpicture}
 }
 
 % Title page
 \defbeamertemplate*{title page}{preslama}[1][]
 { 
-   \vskip6cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,sep=8pt,#1]{title page header}
-      \usebeamerfont{title}\inserttitle\par%
-    \end{beamercolorbox}%
-    \vskip0.75cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{author}
-      \usebeamerfont{author}\insertauthor%
-    \end{beamercolorbox}
-     \vskip0.2cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{date}
-      \usebeamerfont{author}\insertdate%
-    \end{beamercolorbox}
-  \vfill
+
+    \begin{tikzpicture}
+          \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+          \node[anchor=east,xshift=-1cm] at (\the\paperwidth,0.5) {\hfill\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor};
+          \node[anchor=west] at (0,0.5) {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate};
+          
+          \node[anchor=west,text width=10cm] at (2,8) {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\\%
+          \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
+          };
+    \end{tikzpicture}
+    
 }
 
 \mode
